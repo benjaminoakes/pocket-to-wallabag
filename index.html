@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pocket to Wallabag Converter</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pocket to Wallabag Converter</h1>
+            <p>Convert your Pocket export to Wallabag-compatible format</p>
+        </header>
+
+        <main>
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-content">
+                    <div class="upload-icon">📁</div>
+                    <h3>Drop your Pocket export ZIP file here</h3>
+                    <p>or <button class="browse-btn" id="browseBtn">browse files</button></p>
+                    <input type="file" id="fileInput" accept=".zip" hidden>
+                </div>
+            </div>
+
+            <div class="progress-section" id="progressSection" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p id="progressText">Processing...</p>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <h3>Conversion Complete!</h3>
+                <div class="stats" id="statsDisplay"></div>
+                <button class="download-btn" id="downloadBtn">Download Converted CSV</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="lib/jszip.min.js"></script>
+    <script src="js/zip-handler.js"></script>
+    <script src="js/converter.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+</html>
