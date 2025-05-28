@@ -215,6 +215,70 @@ main {
     margin-top: 1rem;
 }
 
+.verification-details {
+    margin-top: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.verification-details summary {
+    padding: 0.75rem 1rem;
+    background: #f8f9fa;
+    cursor: pointer;
+    font-weight: 500;
+    border-bottom: 1px solid #e0e0e0;
+    transition: background-color 0.2s ease;
+}
+
+.verification-details summary:hover {
+    background: #e9ecef;
+}
+
+.verification-details[open] summary {
+    background: #e3f2fd;
+    border-bottom: 1px solid #bbdefb;
+}
+
+.verification-content {
+    padding: 1rem;
+    background: white;
+}
+
+.verification-content h4 {
+    margin: 0 0 0.5rem 0;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.verification-content ol {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.verification-content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.verification-content strong {
+    color: #2c5aa0;
+}
+
+.verification-content a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.verification-content a:hover {
+    text-decoration: underline;
+}
+
+.verification-content em {
+    color: #666;
+    font-size: 0.9rem;
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 1rem;
