@@ -27,13 +27,35 @@ header {
 header h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
-    font-weight: 600;
 }
 
 header p {
     font-size: 1.2rem;
     opacity: 0.9;
     margin-bottom: 1rem;
+}
+
+.format-info {
+    margin-bottom: 1rem;
+}
+
+.format-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+    display: inline-block;
+    backdrop-filter: blur(10px);
+}
+
+.compatibility-note {
+    background: rgba(40, 167, 69, 0.8);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    display: inline-block;
+    backdrop-filter: blur(10px);
 }
 
 .privacy-badges {
@@ -45,23 +67,10 @@ header p {
 
 .badge {
     background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
-    font-weight: 500;
-    color: white;
-}
-
-.privacy-badge {
-    background: rgba(40, 167, 69, 0.3);
-    border-color: rgba(40, 167, 69, 0.5);
-}
-
-.opensource-badge {
-    background: rgba(111, 66, 193, 0.3);
-    border-color: rgba(111, 66, 193, 0.5);
+    backdrop-filter: blur(10px);
 }
 
 main {
@@ -72,25 +81,21 @@ main {
 }
 
 .privacy-notice {
-    background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 100%);
-    border: 1px solid #28a745;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
     border-radius: 8px;
     padding: 1.5rem;
     margin-bottom: 2rem;
-    text-align: center;
 }
 
 .privacy-notice h3 {
-    color: #155724;
+    color: #495057;
     margin-bottom: 0.5rem;
-    font-size: 1.2rem;
 }
 
 .privacy-notice p {
-    color: #155724;
+    color: #6c757d;
     margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.5;
 }
 
 .upload-area {
@@ -100,14 +105,12 @@ main {
     text-align: center;
     transition: all 0.3s ease;
     cursor: pointer;
-    margin-bottom: 2rem;
 }
 
 .upload-area:hover,
 .upload-area.drag-over {
     border-color: #007bff;
     background: #f8f9fa;
-    transform: translateY(-2px);
 }
 
 .upload-content {
@@ -119,18 +122,6 @@ main {
 .upload-icon {
     font-size: 4rem;
     margin-bottom: 1rem;
-    opacity: 0.7;
-}
-
-.upload-area h3 {
-    margin-bottom: 1rem;
-    color: #333;
-    font-weight: 500;
-}
-
-.upload-area p {
-    color: #666;
-    margin-bottom: 0;
 }
 
 .browse-btn {
@@ -140,15 +131,11 @@ main {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-    text-decoration: none;
-    display: inline-block;
+    transition: background 0.3s ease;
 }
 
 .browse-btn:hover {
     background: #0056b3;
-    transform: translateY(-1px);
 }
 
 .progress-section {
@@ -158,9 +145,9 @@ main {
 
 .progress-bar {
     width: 100%;
-    height: 12px;
+    height: 10px;
     background: #e9ecef;
-    border-radius: 6px;
+    border-radius: 5px;
     overflow: hidden;
     margin-bottom: 1rem;
 }
@@ -169,28 +156,17 @@ main {
     height: 100%;
     background: linear-gradient(90deg, #007bff, #0056b3);
     transition: width 0.3s ease;
-    border-radius: 6px;
-}
-
-#progressText {
-    font-size: 1.1rem;
-    color: #666;
-    font-weight: 500;
+    width: 0%;
 }
 
 .results-section {
     text-align: center;
     margin: 2rem 0;
-    padding: 2rem;
-    background: #f8f9fa;
-    border-radius: 8px;
-    border: 1px solid #e9ecef;
 }
 
 .results-section h3 {
     color: #28a745;
     margin-bottom: 1rem;
-    font-size: 1.5rem;
 }
 
 .stats {
@@ -199,89 +175,46 @@ main {
 
 .stats p {
     margin: 0.5rem 0;
-    font-size: 1rem;
+}
+
+.format-explanation {
+    background: #e7f3ff;
+    border: 1px solid #b3d9ff;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    text-align: left;
+}
+
+.format-explanation p {
+    margin: 0.5rem 0;
+    color: #0056b3;
 }
 
 .download-btn {
     background: #28a745;
     color: white;
-    padding: 0.75rem 1.5rem;
+    padding: 1rem 2rem;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
+    font-size: 1.1rem;
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1rem;
-    font-weight: 500;
-    text-decoration: none;
-    display: inline-block;
+    transition: background 0.3s ease;
 }
 
 .download-btn:hover {
     background: #218838;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
-}
-
-.promo-section {
-    margin-top: 3rem;
-    padding: 2rem;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-radius: 8px;
-    text-align: center;
-    border: 1px solid #dee2e6;
-}
-
-.promo-section h3 {
-    color: #495057;
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
-}
-
-.promo-section p {
-    color: #6c757d;
-    margin-bottom: 1.5rem;
-}
-
-#promoCode {
-    background: #fff3cd;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    color: #856404;
-    font-family: 'Courier New', monospace;
-    border: 1px solid #ffeaa7;
-}
-
-.cta-btn {
-    background: #6f42c1;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1rem;
-    font-weight: 500;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.cta-btn:hover {
-    background: #5a32a3;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(111, 66, 193, 0.3);
 }
 
 .error-message {
     background: #f8d7da;
     color: #721c24;
-    padding: 1rem;
-    border-radius: 6px;
     border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    padding: 1rem;
     margin-top: 1rem;
-    text-align: center;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .container {
         padding: 1rem;
@@ -291,21 +224,16 @@ main {
         font-size: 2rem;
     }
     
-    header p {
-        font-size: 1rem;
-    }
-    
     .privacy-badges {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .format-info {
+        display: flex;
+        flex-direction: column;
         gap: 0.5rem;
-    }
-    
-    .badge {
-        font-size: 0.8rem;
-        padding: 0.4rem 0.8rem;
-    }
-    
-    main {
-        padding: 1.5rem;
+        align-items: center;
     }
     
     .upload-area {
@@ -315,41 +243,4 @@ main {
     .upload-icon {
         font-size: 3rem;
     }
-    
-    .privacy-notice {
-        padding: 1rem;
-    }
-    
-    .promo-section {
-        padding: 1.5rem;
-    }
-}
-
-/* Animation for smooth transitions */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.results-section {
-    animation: fadeIn 0.5s ease-out;
-}
-
-/* Focus states for accessibility */
-.browse-btn:focus,
-.download-btn:focus,
-.cta-btn:focus {
-    outline: 2px solid #007bff;
-    outline-offset: 2px;
-}
-
-input[type="file"]:focus + .browse-btn {
-    outline: 2px solid #007bff;
-    outline-offset: 2px;
 }

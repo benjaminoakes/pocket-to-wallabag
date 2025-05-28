@@ -67,7 +67,7 @@ class UIController {
             // Parse Pocket CSV
             const articles = PocketConverter.parsePocketCSV(csvContent);
             
-            this.updateProgress(66, 'Converting to Wallabag format...');
+            this.updateProgress(66, 'Converting to Instapaper format...');
             
             // Convert to Instapaper format
             const converted = PocketConverter.convertToInstapaper(articles);
@@ -104,7 +104,7 @@ class UIController {
         
         this.statsDisplay.innerHTML = `
             <p>✅ Successfully converted <strong>${articleCount}</strong> articles</p>
-            <p>📄 Ready for import into Wallabag</p>
+            <p>📄 Exported in Instapaper CSV format for Wallabag import</p>
         `;
     }
     
@@ -135,7 +135,7 @@ class UIController {
         
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'wallabag-import.csv';
+        a.download = 'instapaper-format-for-wallabag.csv';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);

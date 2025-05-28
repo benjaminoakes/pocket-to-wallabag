@@ -11,9 +11,13 @@
         <header>
             <h1>Pocket to Wallabag Converter</h1>
             <p>Convert your Pocket export to Wallabag-compatible format</p>
+            <div class="format-info">
+                <span class="format-badge">📄 Exports as Instapaper CSV format</span>
+                <span class="compatibility-note">Compatible with Wallabag import</span>
+            </div>
             <div class="privacy-badges">
                 <span class="badge privacy-badge">🔒 100% Client-Side Processing</span>
-                <span class="badge opensource-badge">📖 Open Source (GPLv3)</span>
+                <span class="badge opensource-badge">📖 Open Source (<a href="LICENSE.txt">GPLv3</a>)</span>
             </div>
         </header>
 
@@ -42,6 +46,10 @@
             <div class="results-section" id="resultsSection" style="display: none;">
                 <h3>Conversion Complete!</h3>
                 <div class="stats" id="statsDisplay"></div>
+                <div class="format-explanation">
+                    <p><strong>📄 Format:</strong> Instapaper CSV (compatible with Wallabag import)</p>
+                    <p><strong>💡 Tip:</strong> Use Wallabag's "Import from Instapaper" feature to import this file</p>
+                </div>
                 <button class="download-btn" id="downloadBtn">Download Converted CSV</button>
             </div>
         </main>
