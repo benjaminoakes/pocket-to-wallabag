@@ -2,6 +2,8 @@
 
 A browser-based tool that converts Pocket CSV exports to Instapaper-compatible CSV format for easy import into Wallabag.
 
+A [getoffpocket.com](https://getoffpocket.com) project
+
 ## 🔒 Privacy & Security
 
 This tool processes all data **locally in your browser** - no data is ever sent to any servers.
