@@ -80,7 +80,7 @@ main {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.privacy-notice {
+.privacy-explanation {
     background: #f8f9fa;
     border: 1px solid #e9ecef;
     border-radius: 8px;
@@ -88,12 +88,12 @@ main {
     margin-bottom: 2rem;
 }
 
-.privacy-notice h3 {
+.privacy-explanation h3 {
     color: #495057;
     margin-bottom: 0.5rem;
 }
 
-.privacy-notice p {
+.privacy-explanation p {
     color: #6c757d;
     margin: 0;
 }
@@ -283,27 +283,27 @@ main {
     .container {
         padding: 1rem;
     }
-    
+
     header h1 {
         font-size: 2rem;
     }
-    
+
     .privacy-badges {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .format-info {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
         align-items: center;
     }
-    
+
     .upload-area {
         padding: 2rem 1rem;
     }
-    
+
     .upload-icon {
         font-size: 3rem;
     }
