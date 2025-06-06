@@ -6,35 +6,82 @@
     <title>Pocket to Wallabag Converter</title>
     <link rel="stylesheet" href="css/styles.css">
     <style>
-        /* Basic styles for the new elements for visibility */
+        /* General Style Improvements */
+        .project-badge {
+            display: inline-block;
+            background-color: #f5f5f5;
+            border: 1px solid #dbdbdb;
+            padding: 0.3rem 0.6rem;
+            border-radius: 1rem;
+            font-size: 0.9em;
+            margin-top: 0.5rem;
+        }
+        .project-badge a {
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Share Button (Top) */
+        .share-btn-top {
+            text-decoration: none;
+        }
+
+        /* Promotion and Share Sections */
         .promotion-section, .share-section {
-            border-top: 2px solid #dbdbdb;
-            padding: 1.5rem;
+            border-top: 2px solid #eeeeee;
+            padding: 2rem 1.5rem;
             margin: 2rem auto;
-            text-align: left;
+            text-align: center;
             max-width: 650px;
         }
         .promotion-section h3, .share-section h3 {
             font-size: 1.5em;
             margin-bottom: 0.5rem;
-            text-align: center;
         }
         .promotion-section p, .share-section p {
             margin-bottom: 1rem;
-            text-align: center;
             line-height: 1.6;
+            color: #4a4a4a;
+        }
+
+        /* Coupon Code Copy Button */
+        .promo-code-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 6px;
+            max-width: 250px;
+            margin: 1rem auto;
         }
         .promo-code {
-            background-color: #f5f5f5;
-            border: 1px dashed #dbdbdb;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
             font-family: monospace;
+            font-size: 1.2em;
             font-weight: bold;
+            color: #363636;
         }
+        .copy-promo-btn {
+            background-color: #3273dc;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .copy-promo-btn:hover {
+            background-color: #276cda;
+        }
+        .copy-promo-btn.copied {
+            background-color: #23d160;
+        }
+        
+        /* CTA Buttons */
         .promo-cta-btn, .share-cta-btn {
             display: block;
-            background-color: #23d160;
             color: white !important;
             padding: 12px 20px;
             border-radius: 4px;
@@ -44,9 +91,11 @@
             margin: 1rem auto 0;
             max-width: 300px;
         }
-        .promo-cta-btn:hover, .share-cta-btn:hover {
+        .promo-cta-btn {
+            background-color: #23d160;
+        }
+        .promo-cta-btn:hover {
             background-color: #20bc56;
-            color: white;
         }
         .share-cta-btn {
             background-color: #3273dc;
@@ -60,8 +109,8 @@
     <div class="container">
         <header>
             <h1>Pocket to Wallabag Converter</h1>
-            <p>A <a href="https://getoffpocket.com/">getoffpocket.com</a> project</p>
-            <p>Convert your Pocket export to Wallabag-compatible format</p>
+            <div class="project-badge">A <a href="https://getoffpocket.com/">getoffpocket.com</a> project</div>
+            <p style="margin-top: 1rem;">Convert your Pocket export to Wallabag-compatible format</p>
             <div class="format-info">
                 <span class="format-badge">📄 Exports as Instapaper CSV format</span>
                 <span class="compatibility-note">Compatible with Wallabag import</span>
@@ -69,26 +118,14 @@
             <div class="privacy-badges">
                 <span class="badge privacy-badge">🔒 100% Client-Side Processing</span>
                 <span class="badge opensource-badge">📖 Open Source (🐙 <a href="https://github.com/benjaminoakes/pocket-to-wallabag/">GitHub</a>, 3️⃣ <a href="LICENSE.txt">GPLv3</a>)</span>
+                <a id="shareletteBtnTop" class="badge share-btn-top" href="#" target="_blank">🔗 Share</a>
             </div>
         </header>
 
         <main>
             <div class="privacy-explanation">
                 <h3>🛡️ Your Privacy is Protected</h3>
-                <p>All conversion happens locally in your browser. Your data never leaves your device and is not sent to any servers. This tool is open source under the GPL license and can be verified.</p>
-                <details class="verification-details">
-                    <summary>🔍 How to Verify Client-Side Processing</summary>
-                    <div class="verification-content">
-                        <h4>Easy Verification Methods:</h4>
-                        <ol>
-                            <li><strong>Network Tab Test:</strong> Open Developer Tools (F12) → Network tab → Upload a file. You'll see NO requests to external servers during conversion.</li>
-                            <li><strong>Offline Test:</strong> Disconnect from the internet after loading this page. The tool will still work perfectly.</li>
-                            <li><strong>Source Code:</strong> All code is <a href="https://github.com/benjaminoakes/pocket-to-wallabag/" target="_blank">open source on GitHub</a> - inspect it yourself!</li>
-                            <li><strong>Local File Test:</strong> Download the files and open index.html directly in your browser using file:// protocol.</li>
-                        </ol>
-                        <p><em>These tests prove your data never leaves your device.</em></p>
-                    </div>
-                </details>
+                <p>All conversion happens locally in your browser. Your data is never sent to any servers. This tool is open source and can be verified by the methods below.</p>
             </div>
 
             <div class="upload-area" id="uploadArea">
@@ -118,16 +155,20 @@
             </div>
 
             <div class="promotion-section">
-                <h3>🚀 Supercharge Your Wallabag Experience!</h3>
-                <p>Tired of self-hosting? Get fast, managed Wallabag hosting with <strong>CloudBreak</strong>. We handle the updates, security, and maintenance so you can focus on reading.</p>
-                <p>As a Pocket to Wallabag user, get <strong>$2 off</strong> your subscription with the coupon code: <span class="promo-code">P2WC</span></p>
-                <a href="https://cloudbreak.app/wallabag?utm_medium=referral&utm_source=p2wc&rby=p2wc" target="_blank" class="promo-cta-btn">Sign Up and Claim Your Discount</a>
+                <h3>Want Wallabag, Without the Hassle?</h3>
+                <p>Focus on reading, not server maintenance. With CloudBreak, you get a ready-to-use Wallabag instance in minutes. We handle the installation, updates, and security.</p>
+                <p>Use the code below for <strong>$2 off</strong> your subscription.</p>
+                <div class="promo-code-container">
+                    <span id="promoCode" class="promo-code">P2WC</span>
+                    <button id="copyPromoBtn" class="copy-promo-btn">Copy</button>
+                </div>
+                <a href="https://cloudbreak.app/wallabag?utm_medium=referral&utm_source=p2wc&rby=p2wc" target="_blank" class="promo-cta-btn">Learn More</a>
             </div>
 
             <div class="share-section">
                 <h3>Found This Tool Useful?</h3>
                 <p>If this converter helped you migrate from Pocket, please share it with others! Help fellow users discover an open-source, private alternative for their read-it-later needs.</p>
-                <a id="shareletteBtn" class="share-cta-btn" href="#" target="_blank">🔗 Share This Tool</a>
+                <a id="shareletteBtnBottom" class="share-cta-btn" href="#" target="_blank">🔗 Share This Tool</a>
             </div>
         </main>
     </div>
@@ -139,11 +180,35 @@
     <script>
     document.addEventListener('DOMContentLoaded', function() {
       // --- Sharelette Button Setup ---
-      const shareButton = document.getElementById('shareletteBtn');
-      if (shareButton) {
-        const url = encodeURIComponent(window.location.href);
-        const text = encodeURIComponent('Convert your Pocket export to a Wallabag-compatible format with this free, open-source, and private tool.');
-        shareButton.href = `https://sharelette.cloudbreak.app/?url=${url}&text=${text}`;
+      const shareUrl = 'https://sharelette.cloudbreak.app/?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent('Convert your Pocket export to a Wallabag-compatible format with this free, open-source, and private tool.');
+      
+      const shareButtonTop = document.getElementById('shareletteBtnTop');
+      if (shareButtonTop) {
+        shareButtonTop.href = shareUrl;
+      }
+      
+      const shareButtonBottom = document.getElementById('shareletteBtnBottom');
+      if (shareButtonBottom) {
+        shareButtonBottom.href = shareUrl;
+      }
+
+      // --- Promo Code Copy Button ---
+      const copyButton = document.getElementById('copyPromoBtn');
+      const promoCode = document.getElementById('promoCode');
+
+      if (copyButton && promoCode) {
+        copyButton.addEventListener('click', function() {
+          navigator.clipboard.writeText(promoCode.textContent).then(() => {
+            copyButton.textContent = 'Copied!';
+            copyButton.classList.add('copied');
+            setTimeout(() => {
+              copyButton.textContent = 'Copy';
+              copyButton.classList.remove('copied');
+            }, 2000);
+          }).catch(err => {
+            console.error('Failed to copy: ', err);
+          });
+        });
       }
     });
     </script>
