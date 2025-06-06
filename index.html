@@ -8,13 +8,12 @@
     <style>
         /* General Style Improvements */
         a {
-            color: #0056b3; /* Nicer, accessible link color */
-            text-decoration: none;
+            color: inherit; /* Use parent text color */
             font-weight: bold;
+            text-decoration: underline;
         }
         a:hover {
-            color: #003d80; /* Darker on hover */
-            text-decoration: underline;
+            text-decoration: none; /* Remove underline on hover for feedback */
         }
         .project-badge {
             display: inline-block;
@@ -24,17 +23,23 @@
             border-radius: 1rem;
             font-size: 0.9em;
             margin-top: 0.5rem;
-            color: #363636; /* Dark text for readability */
+            color: #363636; 
         }
         .project-badge a {
-            color: #363636; /* Ensure link inside badge is also dark */
+            text-decoration: none; /* Keep badge link clean */
+        }
+        .project-badge a:hover {
+            text-decoration: underline;
         }
 
-        /* Share Button (Top) */
+        /* Share Button (Top) - Emoji Underline Fix */
         .share-btn-top {
-            text-decoration: none;
+            text-decoration: none; /* Remove underline from the <a> container */
         }
-
+        .share-btn-top .share-text {
+            text-decoration: underline; /* Add underline only to the text span */
+        }
+        
         /* Promotion and Share Sections */
         .promotion-section, .share-section {
             border-top: 2px solid #eeeeee;
@@ -56,13 +61,13 @@
         /* Coupon Code Copy Button */
         .promo-code-container {
             display: flex;
-            justify-content: space-between; /* Aligns items to the edges */
+            justify-content: space-between; 
             align-items: center;
             gap: 10px;
             background-color: #f5f5f5;
-            padding: 10px 15px; /* Added more horizontal padding */
+            padding: 10px 15px; 
             border-radius: 6px;
-            max-width: 280px; /* Increased max-width for better spacing */
+            max-width: 280px;
             margin: 1rem auto;
         }
         .promo-code {
@@ -90,8 +95,8 @@
         
         /* CTA Buttons - Overriding default link styles */
         .promo-cta-btn, .share-cta-btn, .download-btn {
-            color: white !important; /* Ensure text is white */
-            text-decoration: none !important; /* Remove underline */
+            color: white !important;
+            text-decoration: none !important; 
         }
         .promo-cta-btn, .share-cta-btn {
             display: block;
@@ -131,7 +136,7 @@
             <div class="privacy-badges">
                 <span class="badge privacy-badge">🔒 100% Client-Side Processing</span>
                 <span class="badge opensource-badge">📖 Open Source (🐙 <a href="https://github.com/benjaminoakes/pocket-to-wallabag/">GitHub</a>, 3️⃣ <a href="LICENSE.txt">GPLv3</a>)</span>
-                <a id="shareletteBtnTop" class="badge share-btn-top" href="#" target="_blank">🔗 Share</a>
+                <a id="shareletteBtnTop" class="badge share-btn-top" href="#" target="_blank"><span>🔗</span><span class="share-text"> Share</span></a>
             </div>
         </header>
 
@@ -175,7 +180,7 @@
                     <span id="promoCode" class="promo-code">P2WC</span>
                     <button id="copyPromoBtn" class="copy-promo-btn">Copy</button>
                 </div>
-                <a href="https://cloudbreak.app/wallabag?utm_medium=referral&utm_source=p2wc&rby=p2wc" target="_blank" class="promo-cta-btn">Learn More</a>
+                <a href="https://cloudbreak.app/wallabag" target="_blank" class="promo-cta-btn">Learn More</a>
             </div>
 
             <div class="share-section">
