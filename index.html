@@ -174,13 +174,13 @@
 
             <div class="promotion-section">
                 <h3>Want Wallabag, Without the Hassle?</h3>
-                <p>Focus on reading, not server maintenance. With CloudBreak, you get a ready-to-use Wallabag instance in minutes. We handle the installation, updates, and security.</p>
+                <p>Focus on reading, not server maintenance. With <a href="https://cloudbreak.app/wallabag?utm_source=p2wc&utm_medium=inline_link&utm_campaign=promo_text" target="_blank"><strong>CloudBreak</strong></a>, you get a ready-to-use Wallabag instance in minutes. We handle the installation, updates, and security.</p>
                 <p>Use the code below for <strong>$2 off</strong> your subscription.</p>
                 <div class="promo-code-container">
                     <span id="promoCode" class="promo-code">P2WC</span>
                     <button id="copyPromoBtn" class="copy-promo-btn">Copy</button>
                 </div>
-                <a href="https://cloudbreak.app/wallabag" target="_blank" class="promo-cta-btn">Learn More</a>
+                <a href="https://cloudbreak.app/wallabag?utm_source=p2wc&utm_medium=promo_button&utm_campaign=promo_section" target="_blank" class="promo-cta-btn">Learn More</a>
             </div>
 
             <div class="share-section">
@@ -198,7 +198,7 @@
     <script>
     document.addEventListener('DOMContentLoaded', function() {
       // --- Sharelette Button Setup ---
-      // sharelette URL updated with UTM parameters
+      // sharelette URL includes UTM parameters
       const shareUrl = 'https://sharelette.cloudbreak.app/?utm_source=p2wc&utm_medium=share_button&url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent('Convert your Pocket export to a Wallabag-compatible format with this free, open-source, and private tool.');
       
       const shareButtonTop = document.getElementById('shareletteBtnTop');
