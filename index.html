@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="css/styles.css">
     <style>
         /* General Style Improvements */
+        a {
+            color: #0056b3; /* Nicer, accessible link color */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            color: #003d80; /* Darker on hover */
+            text-decoration: underline;
+        }
         .project-badge {
             display: inline-block;
             background-color: #f5f5f5;
@@ -15,10 +24,10 @@
             border-radius: 1rem;
             font-size: 0.9em;
             margin-top: 0.5rem;
+            color: #363636; /* Dark text for readability */
         }
         .project-badge a {
-            text-decoration: none;
-            font-weight: bold;
+            color: #363636; /* Ensure link inside badge is also dark */
         }
 
         /* Share Button (Top) */
@@ -47,13 +56,13 @@
         /* Coupon Code Copy Button */
         .promo-code-container {
             display: flex;
-            justify-content: center;
+            justify-content: space-between; /* Aligns items to the edges */
             align-items: center;
             gap: 10px;
             background-color: #f5f5f5;
-            padding: 10px;
+            padding: 10px 15px; /* Added more horizontal padding */
             border-radius: 6px;
-            max-width: 250px;
+            max-width: 280px; /* Increased max-width for better spacing */
             margin: 1rem auto;
         }
         .promo-code {
@@ -79,13 +88,15 @@
             background-color: #23d160;
         }
         
-        /* CTA Buttons */
+        /* CTA Buttons - Overriding default link styles */
+        .promo-cta-btn, .share-cta-btn, .download-btn {
+            color: white !important; /* Ensure text is white */
+            text-decoration: none !important; /* Remove underline */
+        }
         .promo-cta-btn, .share-cta-btn {
             display: block;
-            color: white !important;
             padding: 12px 20px;
             border-radius: 4px;
-            text-decoration: none;
             font-weight: bold;
             text-align: center;
             margin: 1rem auto 0;
@@ -96,12 +107,14 @@
         }
         .promo-cta-btn:hover {
             background-color: #20bc56;
+            color: white !important;
         }
         .share-cta-btn {
             background-color: #3273dc;
         }
         .share-cta-btn:hover {
             background-color: #276cda;
+            color: white !important;
         }
     </style>
 </head>
