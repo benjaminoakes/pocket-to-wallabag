@@ -5,6 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pocket to Wallabag Converter</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Basic styles for the new elements for visibility */
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #3273dc; /* Default link color */
+            font-weight: bold;
+        }
+        .share-btn:hover {
+            text-decoration: underline;
+        }
+        .promotion-section {
+            border-top: 2px solid #dbdbdb;
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+            text-align: left;
+        }
+        .promotion-section h3 {
+            font-size: 1.5em;
+            margin-bottom: 0.5rem;
+        }
+        .promotion-section p {
+            margin-bottom: 1rem;
+        }
+        .promo-code {
+            background-color: #f5f5f5;
+            border: 1px dashed #dbdbdb;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+        .promo-cta-btn {
+            display: inline-block;
+            background-color: #23d160;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+        }
+        .promo-cta-btn:hover {
+            background-color: #20bc56;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -19,6 +66,7 @@
             <div class="privacy-badges">
                 <span class="badge privacy-badge">🔒 100% Client-Side Processing</span>
                 <span class="badge opensource-badge">📖 Open Source (🐙 <a href="https://github.com/benjaminoakes/pocket-to-wallabag/">GitHub</a>, 3️⃣ <a href="LICENSE.txt">GPLv3</a>)</span>
+                <a id="shareletteBtn" class="badge share-btn" href="#" target="_blank">🔗 Share</a>
             </div>
         </header>
 
@@ -66,6 +114,13 @@
                     <p><strong>💡 Tip:</strong> Use Wallabag's "Import from Instapaper" feature to import this file</p>
                 </div>
                 <button class="download-btn" id="downloadBtn">Download Converted CSV</button>
+
+                <div class="promotion-section">
+                    <h3>🚀 Supercharge Your Wallabag Experience!</h3>
+                    <p>Tired of self-hosting? Get fast, managed Wallabag hosting with <strong>CloudBreak</strong>. We handle the updates, security, and maintenance so you can focus on reading.</p>
+                    <p>As a Pocket to Wallabag user, get <strong>$2 off</strong> your subscription with the coupon code: <span class="promo-code">P2WC</span></p>
+                    <a href="https://cloudbreak.app/wallabag?utm_medium=referral&utm_source=p2wc&rby=p2wc" target="_blank" class="promo-cta-btn">Sign Up and Claim Your Discount</a>
+                </div>
             </div>
         </main>
     </div>
@@ -76,109 +131,20 @@
     <script src="js/ui.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Check for native share support and show appropriate buttons
-      if (navigator.share) {
-        document.getElementById('native-share-btn').style.display = 'inline-flex';
-        document.getElementById('native-share-btn-bottom').style.display = 'inline-flex';
-      } else {
-        document.getElementById('copy-share-btn').style.display = 'inline-flex';
-        document.getElementById('copy-share-btn-bottom').style.display = 'inline-flex';
+      // --- Sharelette Button Setup ---
+      const shareButton = document.getElementById('shareletteBtn');
+      if (shareButton) {
+        const url = encodeURIComponent(window.location.href);
+        const text = encodeURIComponent('Convert your Pocket export to a Wallabag-compatible format with this free, open-source, and private tool.');
+        shareButton.href = `https://sharelette.cloudbreak.app/?url=${url}&text=${text}`;
       }
-    })
 
-  // Native share function
-  function shareNatively() {
-    if (navigator.share) {
-      navigator.share({
-        title: 'Get Off Pocket: Open Source Alternatives',
-        text: 'Comprehensive guide to open source read-it-later tools and hosting options. Compare Wallabag, Readeck, Linkding, Shiori, and more.',
-        url: window.location.href
-      }).then(() => {
-        gtag('event', 'share', {
-          'method': 'native',
-          'content_type': 'guide',
-          'item_id': 'open_source_alternatives'
-        });
-      }).catch((error) => {
-        console.log('Error sharing:', error);
-        // Fallback to copy
-        copyToShare();
-      });
-    } else {
-      copyToShare();
-    }
-  }
+      // Existing script logic (if any) can remain here.
+      // The old share logic has been removed to avoid conflict and focus on the new requirements.
+    });
 
-  // Copy to clipboard function
-  function copyToShare() {
-    const url = window.location.href;
-
-    if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(url).then(() => {
-        showCopyNotification('Link copied to clipboard!');
-        gtag('event', 'share', {
-          'method': 'copy',
-          'content_type': 'guide',
-          'item_id': 'open_source_alternatives'
-        });
-      }).catch(() => {
-        fallbackCopyToClipboard(url);
-      });
-    } else {
-      fallbackCopyToClipboard(url);
-    }
-  }
-
-  // Fallback copy method for older browsers
-  function fallbackCopyToClipboard(text) {
-    const textArea = document.createElement('textarea');
-    textArea.value = text;
-    textArea.style.position = 'fixed';
-    textArea.style.left = '-999999px';
-    textArea.style.top = '-999999px';
-    document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
-
-    try {
-      document.execCommand('copy');
-      showCopyNotification('Link copied to clipboard!');
-      gtag('event', 'share', {
-        'method': 'copy_fallback',
-        'content_type': 'guide',
-        'item_id': 'open_source_alternatives'
-      });
-    } catch (err) {
-      showCopyNotification('Please copy this link manually: ' + text);
-    }
-
-    document.body.removeChild(textArea);
-  }
-
-  // Show copy notification
-  function showCopyNotification(message) {
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = 'notification is-success is-light';
-    notification.style.position = 'fixed';
-    notification.style.top = '20px';
-    notification.style.right = '20px';
-    notification.style.zIndex = '1000';
-    notification.style.maxWidth = '300px';
-    notification.innerHTML = `
-      <button class="delete" onclick="this.parentElement.remove()"></button>
-      ${message}
-    `;
-
-    document.body.appendChild(notification);
-
-    // Auto-remove after 3 seconds
-    setTimeout(() => {
-      if (notification.parentElement) {
-        notification.remove();
-      }
-    }, 3000);
-  }
+    // NOTE: The previous share and copy functions have been removed as the new Sharelette button handles this.
+    // If you need fallback functionality, the original functions can be re-integrated.
     </script>
 </body>
 </html>
