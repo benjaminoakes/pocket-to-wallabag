@@ -23,7 +23,7 @@
             border-radius: 1rem;
             font-size: 0.9em;
             margin-top: 0.5rem;
-            color: #363636; 
+            color: #363636;
         }
         .project-badge a {
             text-decoration: none; /* Keep badge link clean */
@@ -39,7 +39,7 @@
         .share-btn-top .share-text {
             text-decoration: underline; /* Add underline only to the text span */
         }
-        
+
         /* Promotion and Share Sections */
         .promotion-section, .share-section {
             border-top: 2px solid #eeeeee;
@@ -61,11 +61,11 @@
         /* Coupon Code Copy Button */
         .promo-code-container {
             display: flex;
-            justify-content: space-between; 
+            justify-content: space-between;
             align-items: center;
             gap: 10px;
             background-color: #f5f5f5;
-            padding: 10px 15px; 
+            padding: 10px 15px;
             border-radius: 6px;
             max-width: 280px;
             margin: 1rem auto;
@@ -92,11 +92,11 @@
         .copy-promo-btn.copied {
             background-color: #23d160;
         }
-        
+
         /* CTA Buttons - Overriding default link styles */
         .promo-cta-btn, .share-cta-btn, .download-btn {
             color: white !important;
-            text-decoration: none !important; 
+            text-decoration: none !important;
         }
         .promo-cta-btn, .share-cta-btn {
             display: block;
@@ -173,6 +173,10 @@
             </div>
 
             <div class="promotion-section">
+                <p>
+                  <strong>Disclosure:</strong> Space Bar Labs, the creator of this conversion tool, also created CloudBreak (described below).
+                  We benefit if you pay for CloudBreak services.  The below coupon comes at no extra cost to you and provides you with a discount.
+                </p>
                 <h3>Want Wallabag, Without the Hassle?</h3>
                 <p>Focus on reading, not server maintenance. With <a href="https://cloudbreak.app/wallabag?utm_source=p2wc&utm_medium=inline_link&utm_campaign=promo_text" target="_blank"><strong>CloudBreak</strong></a>, you get a ready-to-use Wallabag instance. We handle the installation, updates, and security.</p>
                 <p>Costing <strong>less than $1 per month</strong>, it's an affordable way to get started.</p>
@@ -191,6 +195,17 @@
             </div>
         </main>
     </div>
+    <center>
+      <div style="color: white; margin-bottom: 1em;">
+        <p>
+          <a href="https://spacebarlabs.com/privacy-policy/">Privacy Policy</a>
+          | <a href="https://spacebarlabs.com/terms-of-service/">Terms of Service</a>
+        </p>
+        <p>
+          &copy; 2025 <a href="https://spacebarlabs.com/">Space Bar Labs</a>
+        </p>
+      </div>
+    </center>
 
     <script src="lib/jszip.min.js"></script>
     <script src="js/zip-handler.js"></script>
@@ -200,12 +215,12 @@
     document.addEventListener('DOMContentLoaded', function() {
       // --- Sharelette Button Setup ---
       const shareUrl = 'https://sharelette.cloudbreak.app/?utm_source=p2wc&utm_medium=share_button&url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent('Convert your Pocket export to a Wallabag-compatible format with this free, open-source, and private tool.');
-      
+
       const shareButtonTop = document.getElementById('shareletteBtnTop');
       if (shareButtonTop) {
         shareButtonTop.href = shareUrl;
       }
-      
+
       const shareButtonBottom = document.getElementById('shareletteBtnBottom');
       if (shareButtonBottom) {
         shareButtonBottom.href = shareUrl;
